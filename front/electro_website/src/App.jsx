@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./assets/Header";
 import Description from "./assets/Description";
+import Numbers from "./assets/Numbers";
 import Who from "./assets/Who";
 import axios from "axios";
 import { User } from "./User";
@@ -14,6 +15,7 @@ function App() {
         <Header></Header>
         <Description></Description>
         <Who></Who>
+        <Numbers></Numbers>
       </User>
     </>
   );
