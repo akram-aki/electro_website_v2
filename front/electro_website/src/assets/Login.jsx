@@ -16,7 +16,7 @@ export default function Login(props) {
         Cookies.set("token", result.data, { expires: 1 });
         window.location.reload();
       })
-      .catch((e) => alert("no"));
+      .catch((e) => alert("wrong credentials"));
   }
   return (
     <>

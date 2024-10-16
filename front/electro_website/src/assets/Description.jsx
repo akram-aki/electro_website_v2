@@ -2,12 +2,12 @@ export default function Description() {
   return (
     <div className="bg-NAV relative m-10 pb-52">
       <div className="flex px-32 py-20 font-semibold text-white ">
-        <p className="lg:text-5xl sm:text-lg lg:text-center sm:text-justify">
+        <p className="text-5xl  text-center ">
           <span className="text-ELECT">Electro Scientific Club:</span> a
           community of tech enthusiasts and future leaders.
         </p>
       </div>
-      <p className="text-gray-200 pb-5 font-medium px-32 text-2xl text-center ">
+      <p className="text-gray-100 pb-5 font-medium px-32 text-2xl text-center ">
         where your ideas matter: a place to unleash your creativity and
         curiosity in technology with skilled, friendly, and passionate members.
       </p>

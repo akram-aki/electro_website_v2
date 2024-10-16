@@ -29,16 +29,21 @@ export default function Header() {
           CONTACT
         </a>
       </div>
-
-      <div>
-        <button
-          onClick={togglePop}
-          className=" shadow-2xl rounded-2xl p-3 bg-ELECT text-white"
-        >
-          Login
-        </button>
-        {seen ? <Login toggle={togglePop} /> : null}
-      </div>
+      {currUser ? (
+        <div className="cursor-default bg-ELECT p-3 rounded-2xl w-20 text-center font-semibold text-lg">
+          <span>{currUser}</span>
+        </div>
+      ) : (
+        <div>
+          <button
+            onClick={togglePop}
+            className=" shadow-2xl rounded-2xl p-3 bg-ELECT text-white"
+          >
+            Login
+          </button>
+          {seen ? <Login toggle={togglePop} /> : null}
+        </div>
+      )}
     </nav>
   );
 }
