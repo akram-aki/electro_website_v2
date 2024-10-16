@@ -1,8 +1,10 @@
 import elect_logo from "./elect_logo.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Login from "./Login";
+import { userContext } from "../User";
 export default function Header() {
   const [seen, setSeen] = useState(false);
+  const { currUser } = useContext(userContext);
   function togglePop() {
     setSeen(!seen);
   }
@@ -27,6 +29,7 @@ export default function Header() {
           CONTACT
         </a>
       </div>
+
       <div>
         <button
           onClick={togglePop}

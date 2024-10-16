@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export default function Login(props) {
   const [userName, setUserName] = useState("");
@@ -7,11 +8,14 @@ export default function Login(props) {
   function handleLogin(e) {
     e.preventDefault();
     axios
-      .post("/login", {
+      .get("/login", {
         userName,
         password,
       })
-      .then((result) => alert("sex"))
+      .then((result) => {
+        Cookies.set("token", result.data, { expires: 1 });
+        window.location.reload();
+      })
       .catch((e) => alert("no"));
   }
   return (
