@@ -1,8 +1,14 @@
 import pool from "../db.js";
 import queries from "./queries.js";
 import jwt from "jsonwebtoken";
-const jwtSecret =
-  "16144fc50b241f4518fa577bd61ec6c5a19f44c72347d9d354ffc1e13f49f7aff26f1d7a1a51e419141f3077bc80e436393a5a77be602a796b988aa401200005";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.resolve(__dirname, "../../.env") });
+
 const addUser = (req, res) => {
   const { userName, password } = req.body;
   const values = ["aki", "123"];
@@ -21,7 +27,7 @@ const loginUser = (req, res) => {
     if (result.rows[0].password === password) {
       jwt.sign(
         { userName: userName, id: result.rows[0].id },
-        jwtSecret,
+        process.env.jwtSecret,
         {},
         (err, token) => {
           if (err) res.status(500).json("failed to generate token");
@@ -34,7 +40,7 @@ const loginUser = (req, res) => {
 };
 const getUser = (req, res) => {
   const { cookie } = req.query;
-  jwt.verify(cookie, jwtSecret, (err, result) => {
+  jwt.verify(cookie, process.env.jwtSecret, (err, result) => {
     if (result) return res.json(result);
     res.status(500).json("failed to verify token");
   });
