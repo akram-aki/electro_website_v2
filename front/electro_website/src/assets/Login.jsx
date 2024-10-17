@@ -8,7 +8,7 @@ export default function Login(props) {
   function handleLogin(e) {
     e.preventDefault();
     axios
-      .get("/login", {
+      .post("/login", {
         userName,
         password,
       })

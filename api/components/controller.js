@@ -22,9 +22,9 @@ const loginUser = (req, res) => {
   const values = [userName];
 
   pool.query(queries.dupNameCheck, values, (err, result) => {
-    result.rows[0];
     if (err) return res.status(400).json({ fail: "err wrong credentials" });
-    if (result.rows[0].password === password) {
+    const uspass = result.rows[0].password;
+    if (uspass === password) {
       jwt.sign(
         { userName: userName, id: result.rows[0].id },
         process.env.jwtSecret,

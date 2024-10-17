@@ -20,7 +20,7 @@ export function User({ children }) {
           setId(response.data.id);
         });
     }
-  });
+  }, []);
   return (
     <userContext.Provider value={{ currUser, id }}>
       {children}

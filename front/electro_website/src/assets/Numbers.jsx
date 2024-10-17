@@ -1,33 +1,38 @@
-import { useState } from "react";
+import Counter from "./Counter";
 
 export default function Numbers() {
-  const [projects, setProjects] = useState(113);
-  const [events, setEvents] = useState(84);
-  const [workshops, setWorkshops] = useState(32);
-  const [members, setMembers] = useState(354);
+  const projects = 113;
+  const events = 84;
+  const workshops = 32;
+  const members = 354;
   return (
     <div className="flex  justify-around m-10">
       <div className="grid">
         <span className="text-white text-center text-xl font-bold">
-          {projects}
+          <Counter classname="text-white" from={0} to={projects} duration={2} />
         </span>
         <span className="text-gray-300 text-center ">Projects</span>
       </div>
       <div className="grid">
         <span className="text-white text-center text-xl font-bold">
-          {events}
+          <Counter classname="text-white" from={0} to={events} duration={2} />
         </span>{" "}
         <span className="text-gray-300 text-center ">Events</span>
       </div>
       <div className="grid">
         <span className="text-white text-center text-xl font-bold">
-          {workshops}
+          <Counter
+            classname="text-white"
+            from={0}
+            to={workshops}
+            duration={2}
+          />
         </span>{" "}
         <span className="text-gray-300 text-center ">Workshops</span>
       </div>
       <div className="grid">
         <span className="text-white text-center text-xl font-bold">
-          {members}
+          <Counter classname="text-white" from={0} to={members} duration={2} />
         </span>{" "}
         <span className="text-gray-300 text-center ">Members</span>
       </div>
