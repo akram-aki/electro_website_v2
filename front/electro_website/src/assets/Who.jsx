@@ -20,7 +20,7 @@ export default function Who() {
           </p>
           <a
             href=""
-            className=" ml-auto text-white font-bold hover:shadow-md text-xl mr-12"
+            className=" ml-auto text-white font-bold text-xl mr-12"
           >
             Learn more
           </a>

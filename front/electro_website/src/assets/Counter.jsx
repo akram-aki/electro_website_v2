@@ -10,7 +10,7 @@ const Counter = ({ from, to, duration }) => {
     if (isInView) {
       controls.start({
         count: to,
-        transition: { duration: duration, ease: "easeInOut" },
+        transition: { duration: duration, ease: [0.6, -0.05, 0.01, 0.99] },
       });
     }
   }, [isInView, controls, from]);

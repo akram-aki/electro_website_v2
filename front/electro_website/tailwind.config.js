@@ -8,6 +8,10 @@ export default {
         NAV: "#393939",
         BG: "#212121",
       },
+      // tailwind.config.js
+      fontFamily: {
+        sora: ['Sora', 'sans-serif'],
+      },
     },
   },
   plugins: [],
