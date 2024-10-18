@@ -1,13 +1,13 @@
-export default function AboutUs() {
+export default function Description() {
   return (
-    <div className="bg-NAV relative m-10 pb-52">
+    <div className="bg-BG2 relative mx-10 my-24 pb-52">
       <div className="flex px-32 py-20 font-semibold text-white ">
         <p className="text-5xl  text-center font-sora">
           <span className="text-ELECT font-bold">Electro Scientific Club:</span> a
           community of tech enthusiasts and future leaders.
         </p>
       </div>
-      <p className="text-gray-100 pb-5 px-32 text-2xl text-center font-sora font-bold">
+      <p className="text-BODY pb-5 px-32 text-2xl text-center font-sora font-bold">
         Where your ideas matter: a place to unleash your creativity and
         curiosity in technology with skilled, friendly, and passionate members.
       </p>

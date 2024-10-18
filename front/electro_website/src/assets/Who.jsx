@@ -1,9 +1,9 @@
 export default function Who() {
   return (
-    <div className="bg-NAV   m-10  px-20 pt-10 pb-20  flex justify-center items-center">
+    <div className="bg-BG2   m-10  px-20 pt-10 pb-20  flex justify-center items-center border border-gray-500 rounded-[17px]">
       <div className="grid grid-cols-[1fr_2fr]">
         <div className="grid gap-6 ">
-          <h1 className="text-white font-bold text-3xl   ">Who are we?</h1>{" "}
+          <h1 className="text-white font-bold text-5xl mb-6">Who are we?</h1>{" "}
           <img
             src="https://cfi.iitm.ac.in/elec-club/images/st/1.jpg"
             alt="who image"
@@ -11,7 +11,7 @@ export default function Who() {
           />
         </div>
         <div className="grid relative ">
-          <p className="text-justify text-gray-100 font-medium mt-16 mx-12 text-xl">
+          <p className="text-justify text-BODY font-medium mt-16 mx-12 text-xl">
             Electro Club is a dynamic space for tech-savy students at U.M.B.B
             Founded in 2011, the club invites ambitious students to explore and
             innovate in electronics and robotics. The club's doors swing wide
@@ -24,7 +24,7 @@ export default function Who() {
           >
             Learn more
           </a>
-          <button className="bg-ELECT w-36 ml-auto mr-12 font-medium text-sm text-white rounded-xl px-4 ">
+          <button className="bg-ELECT w-36 ml-auto mr-12 font-medium text-sm text-BODY rounded-xl px-4 ">
             JOIN US
           </button>
         </div>{" "}
