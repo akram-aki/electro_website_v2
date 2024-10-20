@@ -6,19 +6,23 @@ import Who from "./assets/Who";
 import axios from "axios";
 import { User } from "./User";
 import Timeline from "./assets/Timeline";
-
+import Projects from "./assets/Projects";
 axios.defaults.baseURL = "http://localhost:8000/";
 
 function App() {
   return (
     <>
       <User>
-        <Header></Header>
-        <Description />
-        <Who></Who>
-        <Numbers></Numbers>
-        <Timeline></Timeline>
+        <Header />
+        <div className="mx-24 my-10">
+          <Description />
+          <Who />
+          <Numbers />
+          <Timeline />
+          <Projects />
+        </div>
       </User>
+
     </>
   );
 }
