@@ -5,6 +5,7 @@ import Numbers from "./assets/Numbers";
 import Who from "./assets/Who";
 import axios from "axios";
 import { User } from "./User";
+import Timeline from "./assets/Timeline";
 
 axios.defaults.baseURL = "http://localhost:8000/";
 
@@ -16,6 +17,7 @@ function App() {
         <Description />
         <Who></Who>
         <Numbers></Numbers>
+        <Timeline></Timeline>
       </User>
     </>
   );
