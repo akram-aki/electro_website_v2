@@ -13,11 +13,9 @@ function App() {
     <>
       <User>
         <Header></Header>
-        <div className="mx-24">
-          <Description />
-          <Who></Who>
-          <Numbers></Numbers>
-        </div>
+        <Description />
+        <Who></Who>
+        <Numbers></Numbers>
       </User>
     </>
   );
