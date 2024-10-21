@@ -6,7 +6,7 @@ export default function Numbers() {
   const workshops = 32;
   const members = 354;
   return (
-    <div className="flex  justify-around m-10">
+    <div className="flex  justify-around m-10 my-16">
       <div className="grid">
         <span className="text-white text-center text-xl font-bold">
           <Counter classname="text-white" from={0} to={projects} duration={2} />

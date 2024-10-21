@@ -2,7 +2,7 @@ import AnimateScroll from "./AnimateScroll";
 
 export default function Description() {
   return (
-    <div className="bg-NAV my-10 mx-24 py-24 flex flex-col justify-center items-center gap-12">
+    <div className="bg-NAV my-24 py-24 flex flex-col justify-center items-center gap-12">
       <AnimateScroll>
         <p className="text-5xl text-white font-semibold text-center mx-auto max-w-5xl">
           <span className="text-ELECT">Electro Scientific Club:</span> a
