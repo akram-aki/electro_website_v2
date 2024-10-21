@@ -1,11 +1,10 @@
 import "./App.css";
-import Header from "./assets/Header";
-import Description from "./assets/Description";
-import Numbers from "./assets/Numbers";
-import Who from "./assets/Who";
 import axios from "axios";
+import EventForm from "./assets/EventForm";
 import { User } from "./User";
-import Timeline from "./assets/Timeline";
+import Layout from "./assets/Layout";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import IndexPage from "./IndexPage";
 
 axios.defaults.baseURL = "http://localhost:8000/";
 
@@ -13,11 +12,14 @@ function App() {
   return (
     <>
       <User>
-        <Header></Header>
-        <Description />
-        <Who></Who>
-        <Numbers></Numbers>
-        <Timeline></Timeline>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route path="/" element={<IndexPage />} />
+              <Route path="/addnewevent" element={<EventForm />} />
+            </Route>
+          </Routes>
+        </Router>
       </User>
     </>
   );

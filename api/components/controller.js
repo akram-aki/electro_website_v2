@@ -40,9 +40,34 @@ const loginUser = (req, res) => {
 };
 const getUser = (req, res) => {
   const { cookie } = req.query;
-  jwt.verify(cookie, process.env.jwtSecret, (err, result) => {
-    if (result) return res.json(result);
+  try {
+    if (!cookie) return res.status(400).json;
+    jwt.verify(cookie, process.env.jwtSecret, (err, result) => {
+      if (result) return res.json(result);
+      res.status(500).json("failed to verify token");
+    });
+  } catch (err) {
     res.status(500).json("failed to verify token");
-  });
+  }
 };
-export { addUser, loginUser, getUser };
+const addEvent = (req, res) => {
+  const { title, subtitle, description, date, img, id } = req.body;
+  console.log("idk");
+  const userId = id;
+  const values = [title, subtitle, description, date, img, userId];
+  try {
+    if (!title || !subtitle || !description || !date || !img || !id)
+      return res.status(400).json({ fail: "missing data" });
+
+    pool.query(queries.addEventQuery, values, (err, result) => {
+      if (err) return res.status(400).json({ fail: "failed to add event" });
+      res.json({ msg: "event added" });
+    });
+  } catch (err) {
+    res.status(500).json({ fail: "failed to add event" });
+  }
+};
+const test = (req, res) => {
+  res.json({ msg: "nik mok" });
+};
+export { addUser, loginUser, getUser, addEvent, test };

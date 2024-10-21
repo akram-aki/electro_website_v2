@@ -1,9 +1,22 @@
 import TimelineCore from "./TimelineCore";
 import EventCard from "./EventCard";
+import { useContext } from "react";
+import { userContext } from "../User";
+
 export default function Timeline() {
+  const { id } = useContext(userContext);
   return (
     <>
-      <h1 className="text-white text-5xl ml-24 my-6">Events</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-white text-5xl ml-24 my-6">Events</h1>
+        {id && (
+          <div className=" h-14 px-4 bg-ELECT flex justify-center items-center rounded-xl mr-24">
+            <a href="/addnewevent" className="  text-white font-medium">
+              add new event
+            </a>
+          </div>
+        )}
+      </div>
       <TimelineCore>
         <EventCard
           title="india"

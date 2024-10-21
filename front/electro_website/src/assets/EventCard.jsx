@@ -15,13 +15,13 @@ export default function EventCard({ title, subtitle, description, date, img }) {
           <h4 className="vertical-timeline-element-subtitle text-xl">
             {subtitle}
           </h4>
-          <p>{description}</p>
+          <p className="text-justify ">{description}</p>
         </div>
         <div className="flex justify-end mr-5  w-[600px]">
           <img
             src={img}
             alt="img"
-            className="aspect-video rounded-2xl size-80 border border-[1px]"
+            className="aspect-video rounded-2xl size-80 border "
           />
         </div>
       </div>
