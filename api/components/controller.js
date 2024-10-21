@@ -52,7 +52,6 @@ const getUser = (req, res) => {
 };
 const addEvent = (req, res) => {
   const { title, subtitle, description, date, img, id } = req.body;
-  console.log("idk");
   const userId = id;
   const values = [title, subtitle, description, date, img, userId];
   try {
@@ -70,4 +69,12 @@ const addEvent = (req, res) => {
 const test = (req, res) => {
   res.json({ msg: "nik mok" });
 };
-export { addUser, loginUser, getUser, addEvent, test };
+const fetchEvents = (req, res) => {
+  pool.query(queries.fetchEventsQuery, (error, result) => {
+    if (error) res.status(500).json("didnt work");
+    else {
+      res.status(200).json(result.rows);
+    }
+  });
+};
+export { addUser, loginUser, getUser, addEvent, test, fetchEvents };

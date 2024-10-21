@@ -5,9 +5,10 @@ const queries = {
   `,
 
   dupNameCheck: "SELECT * FROM admins WHERE userName = $1",
-  addUserAccomodationQuery: `
+  addEventQuery: `
     INSERT INTO events (title,subtitle,description,date,img,UserId)
     VALUES ($1,$2,$3,$4,$5,$6)
   `,
+  fetchEventsQuery: "SELECT * FROM events",
 };
 export default queries;

@@ -4,42 +4,33 @@ import { useContext } from "react";
 import { userContext } from "../User";
 
 export default function Timeline() {
-  const { id } = useContext(userContext);
+  const { id, events } = useContext(userContext);
   return (
     <>
-      <div className="bg-BG2 my-12 border border-gray-500 rounded-[17px]">
-        <h1 className="text-white font-bold text-5xl mb-6 ml-20 my-16   ">
-          Our Activities
-        </h1>
+      <div className="bg-BG2 my-12 border border-gray-500 pt-10 rounded-[17px]">
+        <div className="flex justify-between">
+          <h1 className="text-white font-bold text-5xl mb-6 ml-10 ">
+            Our Activities
+          </h1>
+          {id && (
+            <a
+              href="/addnewevent"
+              className="bg-ELECT rounded-xl text-center content-center mx-24 px-10 text-white font-medium "
+            >
+              Add
+            </a>
+          )}
+        </div>
         <TimelineCore>
-          <EventCard
-            title="india"
-            subtitle="sigma"
-            description="Get ready to immerse yourself in a night of pulsating electronic beats at Electro Club! Join us for an unforgettable evening where the best DJs in the scene will take you on a sonic journey through the latest and greatest in electronic music. From deep house to techno, and everything in between, our lineup promises to keep you dancing all night long"
-            img="https://th.bing.com/th/id/OIP.XIHKbawz2fk_9bU9wqDJuwHaLH?w=131&h=197&c=7&r=0&o=5&pid=1.7"
-            date="01-01-2021"
-          />
-          <EventCard
-            title="india"
-            subtitle="sigma"
-            description="Get ready to immerse yourself in a night of pulsating electronic beats at Electro Club! Join us for an unforgettable evening where the best DJs in the scene will take you on a sonic journey through the latest and greatest in electronic music. From deep house to techno, and everything in between, our lineup promises to keep you dancing all night long"
-            img="https://th.bing.com/th/id/OIP.XIHKbawz2fk_9bU9wqDJuwHaLH?w=131&h=197&c=7&r=0&o=5&pid=1.7"
-            date="01-01-2021"
-          />
-          <EventCard
-            title="india"
-            subtitle="sigma"
-            description="Get ready to immerse yourself in a night of pulsating electronic beats at Electro Club! Join us for an unforgettable evening where the best DJs in the scene will take you on a sonic journey through the latest and greatest in electronic music. From deep house to techno, and everything in between, our lineup promises to keep you dancing all night long"
-            img="https://th.bing.com/th/id/OIP.XIHKbawz2fk_9bU9wqDJuwHaLH?w=131&h=197&c=7&r=0&o=5&pid=1.7"
-            date="01-01-2021"
-          />
-          <EventCard
-            title="india"
-            subtitle="sigma"
-            description="Get ready to immerse yourself in a night of pulsating electronic beats at Electro Club! Join us for an unforgettable evening where the best DJs in the scene will take you on a sonic journey through the latest and greatest in electronic music. From deep house to techno, and everything in between, our lineup promises to keep you dancing all night long"
-            img="https://th.bing.com/th/id/OIP.XIHKbawz2fk_9bU9wqDJuwHaLH?w=131&h=197&c=7&r=0&o=5&pid=1.7"
-            date="01-01-2021"
-          />
+          {events.map((event) => (
+            <EventCard
+              title={event.title}
+              subtitle={event.subtitle}
+              description={event.description}
+              img={event.img}
+              date={event.date}
+            />
+          ))}
         </TimelineCore>
       </div>
     </>

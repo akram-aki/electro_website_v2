@@ -5,6 +5,7 @@ export const userContext = createContext({});
 
 export function User({ children }) {
   const [currUser, setCurrUser] = useState("");
+  const [events, setEvents] = useState([]);
   const [id, setId] = useState("");
   useEffect(() => {
     if (!currUser) {
@@ -20,9 +21,25 @@ export function User({ children }) {
           setId(response.data.id);
         });
     }
+    if (events.length === 0) {
+      axios.get("/fetchEvents").then((response) => {
+        setEvents(() => {
+          const set = new Set();
+          const newItems = response.data.filter((item) => {
+            if (set.has(item.id)) {
+              return false;
+            }
+            set.add(item.id);
+            return true;
+          });
+          return newItems;
+        });
+      });
+    }
   }, []);
+
   return (
-    <userContext.Provider value={{ currUser, id }}>
+    <userContext.Provider value={{ currUser, id, events }}>
       {children}
     </userContext.Provider>
   );

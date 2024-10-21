@@ -1,10 +1,17 @@
 import Router from "express";
-import { addUser, loginUser, getUser, addEvent, test } from "./controller.js";
+import {
+  addUser,
+  loginUser,
+  fetchEvents,
+  getUser,
+  addEvent,
+  test,
+} from "./controller.js";
 const router = Router();
 
 router.post("/register", addUser);
 router.post("/login", loginUser);
 router.get("/getUser", getUser);
 router.post("/addevent", addEvent);
-router.get("/", test);
+router.get("/fetchEvents", fetchEvents);
 export default router;
