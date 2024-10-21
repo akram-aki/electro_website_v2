@@ -19,7 +19,7 @@ export default function AnimateScroll({ children }) {
     <div ref={ref} className="overflow-hidden relative w-fit ">
       <motion.div
         variants={{
-          hidden: { opacity: 0, y: 75 },
+          hidden: { opacity: 0, y: 50 },
           visible: { opacity: 1, y: 0 },
         }}
         initial="hidden"
@@ -36,7 +36,7 @@ export default function AnimateScroll({ children }) {
         initial="hidden"
         animate={slideControls}
         transition={{ duration: 0.5, ease: "easeIn" }}
-        className="absolute top-0 rounded-xl bottom-0 left-0 right-0 bg-gray-500 z-20"
+        className="absolute top-0  bottom-4 left-4 right-0 bg-gray-500 z-20"
       ></motion.div>
     </div>
   );
