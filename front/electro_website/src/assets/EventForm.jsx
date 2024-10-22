@@ -22,57 +22,61 @@ export default function EventForm() {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="grid gap-10 m-10 bg-NAV p-24 rounded-xl"
-    >
-      <input
-        type="text"
-        placeholder="title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="subtitle"
-        value={subtitle}
-        onChange={(e) => setSubtitle(e.target.value)}
-      />
-      <textarea
-        rows={5}
-        placeholder="description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="date"
-        value={date}
-        onChange={(e) => setDate(e.target.value)}
-      />
-      <div className="flex flex-col">
-        <input
-          type="text"
-          placeholder="img"
-          value={img}
-          onChange={(e) => setImg(e.target.value)}
-        />
-        {img && (
-          <div>
-            <img
-              src={img}
-              alt="img"
-              className="object-cover rounded-2xl aspect-square"
-            ></img>
+    <>
+      {id && (
+        <form
+          onSubmit={handleSubmit}
+          className="grid gap-10 m-10 bg-NAV p-24 rounded-xl"
+        >
+          <input
+            type="text"
+            placeholder="title"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="subtitle"
+            value={subtitle}
+            onChange={(e) => setSubtitle(e.target.value)}
+          />
+          <textarea
+            rows={5}
+            placeholder="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+          <div className="flex flex-col">
+            <input
+              type="text"
+              placeholder="img"
+              value={img}
+              onChange={(e) => setImg(e.target.value)}
+            />
+            {img && (
+              <div>
+                <img
+                  src={img}
+                  alt="img"
+                  className="object-cover rounded-2xl aspect-square"
+                ></img>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-      <button
-        type="submit"
-        className="text-white bg-ELECT w-24 rounded-xl h-10"
-      >
-        Submit
-      </button>
-    </form>
+          <button
+            type="submit"
+            className="text-white bg-ELECT w-24 rounded-xl h-10"
+          >
+            Submit
+          </button>
+        </form>
+      )}
+    </>
   );
 }
