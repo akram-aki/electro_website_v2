@@ -3,8 +3,11 @@ import { useContext, useEffect, useState } from "react";
 import Login from "./Login";
 import { motion, useAnimation } from "framer-motion";
 import { userContext } from "../User";
+import NavElements from "./NavElements";
+
 export default function Header() {
   const [seen, setSeen] = useState(false);
+  const [hamburgOpen, setHamburgOpen] = useState(false);
   const { currUser } = useContext(userContext);
   const mainControls = useAnimation();
   useEffect(() => {
@@ -15,7 +18,7 @@ export default function Header() {
   }
 
   return (
-    <nav className="bg-NAV text-[#b6b6b6]     flex  justify-between px-10   py-4 items-center">
+    <nav className="bg-NAV text-[#b6b6b6] flex justify-between px-10   py-4 items-center">
       <motion.div
         variants={{
           hidden: { opacity: 0 },
@@ -41,19 +44,8 @@ export default function Header() {
         animate={mainControls}
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >
-        <div className="grid grid-cols-4 gap-32 font-sora">
-          <a href="" className="hover:text-ELECT">
-            ABOUT US
-          </a>
-          <a href="" className="hover:text-ELECT">
-            ACTIVITIES
-          </a>
-          <a href="" className="hover:text-ELECT">
-            DISCORD
-          </a>
-          <a href="" className="hover:text-ELECT">
-            CONTACT
-          </a>
+        <div className="lg:grid sm:hidden lg:grid-cols-4 gap-32 font-sora">
+          <NavElements />
         </div>
       </motion.div>
       <motion.div
@@ -66,11 +58,11 @@ export default function Header() {
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >
         {currUser ? (
-          <div className="cursor-default bg-ELECT p-3 rounded-2xl w-20 text-center font-semibold text-lg">
+          <div className="cursor-default sm:hidden bg-ELECT p-3 rounded-2xl w-20 text-center font-semibold text-lg">
             <span>{currUser}</span>
           </div>
         ) : (
-          <div>
+          <div className="sm:hidden lg:flex">
             <button
               onClick={togglePop}
               className=" shadow-2xl rounded-2xl p-3 bg-ELECT text-white"
@@ -81,6 +73,33 @@ export default function Header() {
           </div>
         )}
       </motion.div>
+      <button
+        className="lg:hidden sm:flex"
+        onClick={(e) => {
+          e.preventDefault();
+          setHamburgOpen(!hamburgOpen);
+        }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className="size-10"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+      </button>
+      {hamburgOpen && (
+        <div className="grid duration-100 ease-in-out transition-all gap-4">
+          <NavElements />
+        </div>
+      )}
     </nav>
   );
 }

@@ -2,15 +2,18 @@ import AnimateScroll from "./AnimateScroll";
 
 export default function Description() {
   return (
-    <div className="bg-NAV my-24 py-24 flex flex-col justify-center items-center gap-12">
+    <div className="bg-NAV my-24 lg:px-0 sm:px-10 py-24 flex flex-col justify-center items-center sm:gap-6 lg:gap-12">
       <AnimateScroll>
-        <p className="text-5xl text-white font-semibold text-center mx-auto max-w-5xl">
-          <span className="text-ELECT">Electro Scientific Club:</span> a
-          community of tech enthusiasts and future leaders.
+        <p className="lg:text-5xl sm:text-3xl text-white font-semibold lg:text-center  sm:text-center mx-auto max-w-5xl">
+          <span className="text-ELECT">
+            Electro Scientific Club:
+            <br className="lg:hidden" />
+          </span>{" "}
+          a community of tech enthusiasts and future leaders.
         </p>
       </AnimateScroll>
       <AnimateScroll>
-        <p className="text-gray-100 pb-5 font-medium text-2xl text-center mx-auto max-w-3xl">
+        <p className="text-gray-100 pb-5 font-medium text-xl lg:text-center sm:text-justify mx-auto max-w-3xl">
           where your ideas matter: a place to unleash your creativity and
           curiosity in technology with skilled, friendly, and passionate
           members.

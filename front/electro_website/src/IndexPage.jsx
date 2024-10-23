@@ -5,7 +5,7 @@ import Timeline from "./assets/Timeline";
 import Projects from "./assets/Projects";
 export default function IndexPage() {
   return (
-    <div className="mx-24">
+    <div className="sm:mx-8 lg:mx-24">
       <Description />
       <Who />
       <Numbers />

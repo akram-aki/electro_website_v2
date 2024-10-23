@@ -7,17 +7,19 @@ export default function EventCard({ title, subtitle, description, date, img }) {
       contentStyle={{ background: "#393939", color: "#d9d9d9" }}
       contentrrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
       date={date}
-      iconStyle={{ background: "gray", color: "gray" }}
+      iconStyle={{ background: "#77C02E", color: "#F4CE14" }}
     >
-      <div className="grid grid-cols-[2fr_1fr] ">
-        <div>
-          <h3 className="vertical-timeline-element-title text-4xl">{title}</h3>
-          <h4 className="vertical-timeline-element-subtitle text-xl">
+      <div className="grid lg:grid-cols-2 sm:grid-cols-1 lg:gap-0 sm:gap-5">
+        <div className=" w-fit">
+          <h3 className="vertical-timeline-element-title text-ELECT text-4xl">
+            {title}
+          </h3>
+          <h4 className="vertical-timeline-element-subtitle text-gray-400 text-xl">
             {subtitle}
           </h4>
           <p className="text-justify ">{description}</p>
         </div>
-        <div className="flex justify-end mr-5  w-[600px]">
+        <div className="flex justify-end mr-5  ">
           <img
             src={img}
             alt="img"

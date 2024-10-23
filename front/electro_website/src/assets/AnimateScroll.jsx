@@ -36,7 +36,7 @@ export default function AnimateScroll({ children }) {
         initial="hidden"
         animate={slideControls}
         transition={{ duration: 0.5, ease: "easeIn" }}
-        className="absolute top-0  bottom-4 left-4 right-0 bg-gray-500 z-20"
+        className="absolute top-0  bottom-4 left-4 right-0 bg-BG rounded-xl shadow-lg z-20"
       ></motion.div>
     </div>
   );

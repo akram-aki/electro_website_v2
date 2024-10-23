@@ -5,7 +5,6 @@ import { User } from "./User";
 import Layout from "./assets/Layout";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import IndexPage from "./IndexPage";
-
 axios.defaults.baseURL = "http://localhost:8000/";
 
 function App() {
