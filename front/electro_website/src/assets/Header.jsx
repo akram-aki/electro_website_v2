@@ -4,10 +4,10 @@ import Login from "./Login";
 import { motion, useAnimation } from "framer-motion";
 import { userContext } from "../User";
 import NavElements from "./NavElements";
+import Hamburger from "./Nav/Hamburger";
 
 export default function Header() {
   const [seen, setSeen] = useState(false);
-  const [hamburgOpen, setHamburgOpen] = useState(false);
   const { currUser } = useContext(userContext);
   const mainControls = useAnimation();
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function Header() {
   }
 
   return (
-    <nav className="bg-NAV text-[#b6b6b6] flex justify-between px-10   py-4 items-center">
+    <nav className="bg-NAV relative text-[#b6b6b6] flex justify-between px-10   h-20 py-4 items-center">
       <motion.div
         variants={{
           hidden: { opacity: 0 },
@@ -73,33 +73,9 @@ export default function Header() {
           </div>
         )}
       </motion.div>
-      <button
-        className="lg:hidden sm:flex"
-        onClick={(e) => {
-          e.preventDefault();
-          setHamburgOpen(!hamburgOpen);
-        }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="size-10"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-          />
-        </svg>
-      </button>
-      {hamburgOpen && (
-        <div className="grid duration-100 ease-in-out transition-all gap-4">
-          <NavElements />
-        </div>
-      )}
+      <div className="absolute top-0 right-0 lg:hidden sm:inline-block">
+        <Hamburger />
+      </div>
     </nav>
   );
 }
