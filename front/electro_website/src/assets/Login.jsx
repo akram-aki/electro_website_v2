@@ -54,7 +54,7 @@ export default function Login(props) {
           <label className="flex flex-col items-center">
             Password
             <input
-              type="password"
+              type="text"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className=" border p-1 rounded-xl w-auto shadow-md"

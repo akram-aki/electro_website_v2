@@ -2,7 +2,10 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 function Projects() {
   return (
-    <div className="bg-BG2 p-12 border border-gray-500 rounded-[17px] text-[#d9d9d9]">
+    <div
+      id="projects"
+      className="bg-BG2 p-12 border border-gray-500 rounded-[17px] text-[#d9d9d9]"
+    >
       <h1 className="text-white font-bold text-5xl mb-12">Our Projects</h1>
       <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-10">
         <ProjectCard

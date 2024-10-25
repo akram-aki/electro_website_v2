@@ -8,7 +8,7 @@ import Hamburger from "./Nav/Hamburger";
 
 export default function Header() {
   const [seen, setSeen] = useState(false);
-  const { currUser } = useContext(userContext);
+  const { currUser, id } = useContext(userContext);
   const mainControls = useAnimation();
   useEffect(() => {
     mainControls.start("visible");
@@ -58,8 +58,8 @@ export default function Header() {
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >
         {currUser ? (
-          <div className="cursor-default sm:hidden bg-ELECT p-3 rounded-2xl w-20 text-center font-semibold text-lg">
-            <span>{currUser}</span>
+          <div className="text-white sm:absolute lg:static   sm:left-1/2 sm:top-3 bg-ELECT p-3 rounded-2xl w-auto text-center font-semibold text-lg">
+            <a href="/dashboard">Dashboard</a>
           </div>
         ) : (
           <div className="sm:hidden lg:flex">

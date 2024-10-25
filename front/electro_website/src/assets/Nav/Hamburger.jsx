@@ -76,7 +76,7 @@ export default function Hamburger() {
           />
         </motion.button>
         <AnimatePresence>
-          <Nav state={active} />
+          <Nav state={active} setState={setActive} />
         </AnimatePresence>
       </motion.div>
     </div>

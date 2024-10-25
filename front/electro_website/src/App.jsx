@@ -1,10 +1,10 @@
 import "./App.css";
 import axios from "axios";
-import EventForm from "./assets/EventForm";
 import { User } from "./User";
 import Layout from "./assets/Layout";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import IndexPage from "./IndexPage";
+import Dashboard from "./assets/Dashboard";
 axios.defaults.baseURL = "http://localhost:8000/";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route path="/" element={<IndexPage />} />
-              <Route path="/addnewevent" element={<EventForm />} />
+              <Route path="/dashboard" element={<Dashboard />} />
             </Route>
           </Routes>
         </Router>

@@ -1,7 +1,10 @@
 import AnimateScroll from "./AnimateScroll";
 export default function Who() {
   return (
-    <div className="bg-BG2 my-12 lg:px-20 sm:px-1 pt-10 pb-20  flex justify-center items-center border border-gray-500 rounded-[17px]">
+    <div
+      id="about-us"
+      className="bg-BG2 my-12 lg:px-20 sm:px-1 pt-10 pb-20  flex justify-center items-center border border-gray-500 rounded-[17px]"
+    >
       <div className="grid sm:grid-cols-1 lg:grid-cols-[1fr_2fr]">
         <div className="flex flex-col items-center gap-6 ">
           <AnimateScroll>

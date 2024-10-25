@@ -1,5 +1,5 @@
 import { footerLinks, navElements } from "./data";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import "./Nav.css";
 const variants = {
   open: (i) => ({
@@ -40,7 +40,15 @@ const footerVariant = {
     opacity: 0,
   },
 };
-export default function Nav({ state }) {
+export default function Nav({ state, setState }) {
+  const handleScroll = async (event, targetId, setState) => {
+    event.preventDefault();
+    await new Promise((resolve) => {
+      document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
+      setTimeout(resolve, 2000);
+    });
+    setState(!state);
+  };
   return (
     <nav className="grid gap-24">
       <div className="flex flex-col  items-start mt-24 ml-16 gap-5">
@@ -60,7 +68,11 @@ export default function Nav({ state }) {
               transition={{ type: "tween" }}
               custom={i}
             >
-              <a href={Element.href} className="text-3xl text-black">
+              <a
+                href={"#" + Element.href}
+                onClick={(e) => handleScroll(e, Element.href, setState)}
+                className="text-3xl text-black"
+              >
                 {Element.title}
               </a>
             </motion.div>

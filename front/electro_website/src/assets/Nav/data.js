@@ -1,19 +1,19 @@
 export const navElements = [
   {
     title: "ABOUT US",
-    href: "/",
+    href: "about-us",
   },
   {
     title: "ACTIVITIES",
-    href: "/",
+    href: "activities",
+  },
+  {
+    title: "PROJECTS",
+    href: "projects",
   },
   {
     title: "DISCORD",
-    href: "/",
-  },
-  {
-    title: "CONTACT",
-    href: "/",
+    href: "https://discord.gg/A3Yw7kybDz",
   },
 ];
 export const footerLinks = [
@@ -23,14 +23,10 @@ export const footerLinks = [
   },
   {
     title: "Instagram",
-    href: "/",
+    href: "https://www.instagram.com/electro.sc/",
   },
   {
     title: "Twitter",
-    href: "/",
-  },
-  {
-    title: "Discord",
     href: "/",
   },
 ];
