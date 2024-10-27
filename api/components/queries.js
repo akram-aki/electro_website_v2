@@ -10,5 +10,10 @@ const queries = {
     VALUES ($1,$2,$3,$4,$5,$6)
   `,
   fetchEventsQuery: "SELECT * FROM events",
+  fetchProjectsQuery: "SELECT * FROM projects",
+  addProjectQuery: `
+    INSERT INTO projects (title,description,img,UserId)
+    VALUES ($1,$2,$3,$4)
+`,
 };
 export default queries;

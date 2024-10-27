@@ -24,11 +24,11 @@ export default function AnimateScroll({ children }) {
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.5, delay: 0.3 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
       >
         {children}
       </motion.div>
-      <motion.div
+      {/* <motion.div
         variants={{
           hidden: { left: 0 },
           visible: { left: "100%" },
@@ -36,8 +36,8 @@ export default function AnimateScroll({ children }) {
         initial="hidden"
         animate={slideControls}
         transition={{ duration: 0.5, ease: "easeIn" }}
-        className="absolute top-0  bottom-4 left-4 right-0 bg-BG rounded-xl shadow-lg z-20"
-      ></motion.div>
+        className="absolute top-0  bottom-4 left-0 right-0 bg-slate-600  shadow-lg z-20"
+      ></motion.div> */}
     </div>
   );
 }

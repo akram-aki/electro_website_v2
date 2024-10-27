@@ -17,8 +17,9 @@ export default function Timeline() {
           </h1>
         </div>
         <TimelineCore>
-          {events.map((event) => (
+          {events.map((event, key) => (
             <EventCard
+              key={key}
               title={event.title}
               subtitle={event.subtitle}
               description={event.description}

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import ProjectCard from "./ProjectCard";
+import { userContext } from "../User";
 function Projects() {
+  const { projects } = useContext(userContext);
   return (
     <div
       id="projects"
@@ -8,60 +10,14 @@ function Projects() {
     >
       <h1 className="text-white font-bold text-5xl mb-12">Our Projects</h1>
       <div className="grid lg:grid-cols-2 sm:grid-cols-1 gap-10">
-        <ProjectCard
-          title={"WHAT ON GOD"}
-          img={
-            "https://preview.redd.it/first-impressions-we-still-dont-trust-you-v0-umohpu7r50uc1.png?auto=webp&s=6b5b81c7e026930e455a6b824600961df81ac764"
-          }
-          description={
-            "  A project that explores the unexpected and the extraordinary, pushing the boundaries of creativity and innovation. This project is a testament to the power of imagination and the endless possibilities of technology. Skibid pos."
-          }
-        />
-        <ProjectCard
-          title={"WHAT ON GOD"}
-          img={
-            "https://preview.redd.it/first-impressions-we-still-dont-trust-you-v0-umohpu7r50uc1.png?auto=webp&s=6b5b81c7e026930e455a6b824600961df81ac764"
-          }
-          description={
-            "  A project that explores the unexpected and the extraordinary, pushing the boundaries of creativity and innovation. This project is a testament to the power of imagination and the endless possibilities of technology. Skibid pos."
-          }
-        />
-        <ProjectCard
-          title={"WHAT ON GOD"}
-          img={
-            "https://preview.redd.it/first-impressions-we-still-dont-trust-you-v0-umohpu7r50uc1.png?auto=webp&s=6b5b81c7e026930e455a6b824600961df81ac764"
-          }
-          description={
-            "  A project that explores the unexpected and the extraordinary, pushing the boundaries of creativity and innovation. This project is a testament to the power of imagination and the endless possibilities of technology. Skibid pos."
-          }
-        />
-        <ProjectCard
-          title={"WHAT ON GOD"}
-          img={
-            "https://preview.redd.it/first-impressions-we-still-dont-trust-you-v0-umohpu7r50uc1.png?auto=webp&s=6b5b81c7e026930e455a6b824600961df81ac764"
-          }
-          description={
-            "  A project that explores the unexpected and the extraordinary, pushing the boundaries of creativity and innovation. This project is a testament to the power of imagination and the endless possibilities of technology. Skibid pos."
-          }
-        />
-        <ProjectCard
-          title={"WHAT ON GOD"}
-          img={
-            "https://preview.redd.it/first-impressions-we-still-dont-trust-you-v0-umohpu7r50uc1.png?auto=webp&s=6b5b81c7e026930e455a6b824600961df81ac764"
-          }
-          description={
-            "  A project that explores the unexpected and the extraordinary, pushing the boundaries of creativity and innovation. This project is a testament to the power of imagination and the endless possibilities of technology. Skibid pos."
-          }
-        />
-        <ProjectCard
-          title={"WHAT ON GOD"}
-          img={
-            "https://preview.redd.it/first-impressions-we-still-dont-trust-you-v0-umohpu7r50uc1.png?auto=webp&s=6b5b81c7e026930e455a6b824600961df81ac764"
-          }
-          description={
-            "  A project that explores the unexpected and the extraordinary, pushing the boundaries of creativity and innovation. This project is a testament to the power of imagination and the endless possibilities of technology. Skibid pos."
-          }
-        />
+        {projects.map((project, key) => (
+          <ProjectCard
+            key={key}
+            title={project.title}
+            img={project.img}
+            description={project.description}
+          />
+        ))}
       </div>
     </div>
   );

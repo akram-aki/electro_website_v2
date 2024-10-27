@@ -66,9 +66,6 @@ const addEvent = (req, res) => {
     res.status(500).json({ fail: "failed to add event" });
   }
 };
-const test = (req, res) => {
-  res.json({ msg: "nik mok" });
-};
 const fetchEvents = (req, res) => {
   pool.query(queries.fetchEventsQuery, (error, result) => {
     if (error) res.status(500).json("didnt work");
@@ -77,4 +74,37 @@ const fetchEvents = (req, res) => {
     }
   });
 };
-export { addUser, loginUser, getUser, addEvent, test, fetchEvents };
+const addProject = (req, res) => {
+  const { title, description, img, id } = req.body;
+  console.log(req.body);
+  const userId = id;
+  const values = [title, description, img, userId];
+  try {
+    if (!title || !description || !img || !id)
+      return res.status(400).json({ fail: "missing data" });
+
+    pool.query(queries.addProjectQuery, values, (err, result) => {
+      if (err) return res.status(400).json({ fail: "failed to add project" });
+      res.json({ msg: "project added" });
+    });
+  } catch (err) {
+    res.status(500).json({ fail: "failed to add project" });
+  }
+};
+const fetchProjects = (req, res) => {
+  pool.query(queries.fetchProjectsQuery, (error, result) => {
+    if (error) res.status(500).json("didnt work");
+    else {
+      res.status(200).json(result.rows);
+    }
+  });
+};
+export {
+  addUser,
+  loginUser,
+  getUser,
+  addEvent,
+  fetchEvents,
+  addProject,
+  fetchProjects,
+};

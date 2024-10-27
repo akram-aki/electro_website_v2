@@ -5,27 +5,34 @@ import EventForm from "./EventForm";
 import ProjectForm from "./ProjectForm";
 import MailComponent from "./MailComponent";
 import { motion } from "framer-motion";
+import { userContext } from "../User";
+import { useContext } from "react";
 
 export default function Dashboard() {
   const [selected, setSelected] = useState("Add new event");
+  const { id } = useContext(userContext);
 
   return (
-    <div className="flex bg-BG">
-      <Sidebar selected={selected} setSelected={setSelected} />
-      {selected === "Add new event" ? (
-        <div className="w-screen">
-          <EventForm />
+    <>
+      {id && (
+        <div className="flex bg-BG">
+          <Sidebar selected={selected} setSelected={setSelected} />
+          {selected === "Add new event" ? (
+            <div className="w-screen">
+              <EventForm />
+            </div>
+          ) : selected === "Add new project" ? (
+            <div className="w-screen">
+              <ProjectForm />
+            </div>
+          ) : selected === "Mail" ? (
+            <MailComponent />
+          ) : (
+            <div className="text-6xl text-white">wtf</div>
+          )}
         </div>
-      ) : selected === "Add new project" ? (
-        <div className="w-screen">
-          <ProjectForm />
-        </div>
-      ) : selected === "Mail" ? (
-        <MailComponent />
-      ) : (
-        <div className="text-6xl text-white">wtf</div>
       )}
-    </div>
+    </>
   );
 }
 
@@ -135,7 +142,10 @@ const Option = ({ Icon, title, selected, setSelected, open, notifs }) => {
 const TitleSection = ({ open }) => {
   return (
     <div className="mb-3 border-b border-slate-300 pb-3">
-      <div className="flex cursor-pointer items-center justify-between rounded-md transition-colors hover:bg-slate-100">
+      <a
+        href="/"
+        className="flex cursor-pointer items-center justify-between rounded-md transition-colors hover:bg-slate-100"
+      >
         <div className="flex items-center gap-2">
           <Logo />
           {open && (
@@ -152,7 +162,7 @@ const TitleSection = ({ open }) => {
             </motion.div>
           )}
         </div>
-      </div>
+      </a>
     </div>
   );
 };
