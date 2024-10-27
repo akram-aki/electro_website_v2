@@ -1,5 +1,5 @@
 import React from "react";
-import AnimateScroll from "./AnimateScroll";
+import AnimateScroll from "../AnimateScroll";
 
 function ProjectCard({ title, description, img }) {
   return (

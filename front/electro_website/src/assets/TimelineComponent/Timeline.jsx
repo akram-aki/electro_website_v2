@@ -1,7 +1,7 @@
 import TimelineCore from "./TimelineCore";
 import EventCard from "./EventCard";
 import { useContext } from "react";
-import { userContext } from "../User";
+import { userContext } from "../../User";
 
 export default function Timeline() {
   const { events } = useContext(userContext);

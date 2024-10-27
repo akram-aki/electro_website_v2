@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import ProjectCard from "./ProjectCard";
-import { userContext } from "../User";
+import { userContext } from "../../User";
 function Projects() {
   const { projects } = useContext(userContext);
   return (

@@ -1,10 +1,10 @@
 import elect_logo from "./elect_logo.png";
 import { useContext, useEffect, useState } from "react";
-import Login from "./Login";
+import Login from "../Login";
 import { motion, useAnimation } from "framer-motion";
-import { userContext } from "../User";
+import { userContext } from "../../User";
 import NavElements from "./NavElements";
-import Hamburger from "./Nav/Hamburger";
+import Hamburger from "../MobileNavComponent/Hamburger";
 
 export default function Header() {
   const [seen, setSeen] = useState(false);

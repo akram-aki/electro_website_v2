@@ -1,6 +1,6 @@
 import AnimateScroll from "./AnimateScroll";
 
-export default function Description() {
+export default function Hero() {
   return (
     <div className="bg-NAV  my-24 lg:px-0 sm:px-10 py-24 flex flex-col justify-center items-center sm:gap-6 lg:gap-12">
       <AnimateScroll>

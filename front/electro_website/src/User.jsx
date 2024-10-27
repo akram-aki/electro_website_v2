@@ -20,37 +20,44 @@ export function User({ children }) {
         .then((response) => {
           setCurrUser(response.data.userName);
           setId(response.data.id);
-        });
+        })
+        .catch((e) => console.log("couldnt get user"));
     }
     if (events.length === 0) {
-      axios.get("/fetchEvents").then((response) => {
-        setEvents(() => {
-          const set = new Set();
-          const newItems = response.data.filter((item) => {
-            if (set.has(item.id)) {
-              return false;
-            }
-            set.add(item.id);
-            return true;
+      axios
+        .get("/fetchEvents")
+        .then((response) => {
+          setEvents(() => {
+            const set = new Set();
+            const newItems = response.data.filter((item) => {
+              if (set.has(item.id)) {
+                return false;
+              }
+              set.add(item.id);
+              return true;
+            });
+            return newItems;
           });
-          return newItems;
-        });
-      });
+        })
+        .catch((e) => console.log("couldnt get events"));
     }
     if (projects.length === 0) {
-      axios.get("/fetchProject").then((response) => {
-        setProjects(() => {
-          const set = new Set();
-          const newItems = response.data.filter((item) => {
-            if (set.has(item.id)) {
-              return false;
-            }
-            set.add(item.id);
-            return true;
+      axios
+        .get("/fetchProject")
+        .then((response) => {
+          setProjects(() => {
+            const set = new Set();
+            const newItems = response.data.filter((item) => {
+              if (set.has(item.id)) {
+                return false;
+              }
+              set.add(item.id);
+              return true;
+            });
+            return newItems;
           });
-          return newItems;
-        });
-      });
+        })
+        .catch((e) => console.log("couldnt get projects"));
     }
   }, []);
 

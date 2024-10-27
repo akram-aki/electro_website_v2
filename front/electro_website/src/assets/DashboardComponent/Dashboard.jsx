@@ -5,7 +5,7 @@ import EventForm from "./EventForm";
 import ProjectForm from "./ProjectForm";
 import MailComponent from "./MailComponent";
 import { motion } from "framer-motion";
-import { userContext } from "../User";
+import { userContext } from "../../User";
 import { useContext } from "react";
 
 export default function Dashboard() {

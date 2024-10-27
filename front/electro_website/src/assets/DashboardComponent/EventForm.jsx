@@ -1,23 +1,27 @@
 import { useContext, useState } from "react";
 import axios from "axios";
-import { userContext } from "../User";
-export default function ProjectForm() {
+import { userContext } from "../../User";
+export default function EventForm() {
   const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
   const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
   const [img, setImg] = useState("");
   const { id } = useContext(userContext);
   function handleSubmit(e) {
     e.preventDefault();
-    if (!title || !description || !img || !id) return;
+    if (!title || !subtitle || !description || !date || !img || !id) return;
     axios
-      .post("http://localhost:8000/addproject", {
+      .post("http://localhost:8000/addevent", {
         title,
+        subtitle,
         description,
+        date,
         img,
         id,
       })
       .then(() => alert("success"))
-      .catch(() => alert("failed, try again later"));
+      .catch(() => alert("error"));
   }
 
   return (
@@ -33,12 +37,23 @@ export default function ProjectForm() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-
+          <input
+            type="text"
+            placeholder="subtitle"
+            value={subtitle}
+            onChange={(e) => setSubtitle(e.target.value)}
+          />
           <textarea
             rows={5}
             placeholder="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
           />
           <div className="flex flex-col">
             <input
