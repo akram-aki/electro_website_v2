@@ -36,6 +36,21 @@ export function User({ children }) {
         });
       });
     }
+    if (projects.length === 0) {
+      axios.get("/fetchProject").then((response) => {
+        setProjects(() => {
+          const set = new Set();
+          const newItems = response.data.filter((item) => {
+            if (set.has(item.id)) {
+              return false;
+            }
+            set.add(item.id);
+            return true;
+          });
+          return newItems;
+        });
+      });
+    }
   }, []);
 
   return (
