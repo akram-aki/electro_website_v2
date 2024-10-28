@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DeleteEvent from "./DeleteEvent";
 import { FiChevronsRight } from "react-icons/fi";
 import { MdEvent, MdComputer, MdEmail, MdDelete } from "react-icons/md";
 import EventForm from "./EventForm";
@@ -7,6 +8,7 @@ import MailComponent from "./MailComponent";
 import { motion } from "framer-motion";
 import { userContext } from "../../User";
 import { useContext } from "react";
+import DeleteProject from "./DeleteProject";
 
 export default function Dashboard() {
   const [selected, setSelected] = useState("Add new event");
@@ -27,6 +29,10 @@ export default function Dashboard() {
             </div>
           ) : selected === "Mail" ? (
             <MailComponent />
+          ) : selected === "Delete event" ? (
+            <DeleteEvent />
+          ) : selected === "Delete Project" ? (
+            <DeleteProject />
           ) : (
             <div className="text-6xl text-white">wtf</div>
           )}

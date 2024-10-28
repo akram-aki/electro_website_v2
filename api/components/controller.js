@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+import { response } from "express";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -99,12 +100,68 @@ const fetchProjects = (req, res) => {
     }
   });
 };
+const searchEvents = (req, res) => {
+  const { search } = req.query;
+  try {
+    if (!search) return res.status(400).json({ fail: "missing data" });
+    const values = [search, search];
+    pool.query(queries.searchEventQuery, values, (err, result) => {
+      if (err) return res.status(400).json({ fail: "failed to search" });
+      res.json(result.rows);
+    });
+  } catch (err) {
+    res.status(500).json({ fail: "failed to search" });
+  }
+};
+const deleteEvent = (req, res) => {
+  const { title } = req.body;
+  const values = [title];
+  try {
+    if (!title) return res.status(400).json({ fail: "missing data" });
+    pool.query(queries.deleteEventQuery, values, (err, result) => {
+      if (err) return res.status(400).json({ fail: "failed to delete" });
+      res.json({ msg: "deleted" });
+    });
+  } catch (err) {
+    res.status(500).json({ fail: "failed to delete" });
+  }
+};
+const searchProjects = (req, res) => {
+  const { search } = req.query;
+  try {
+    if (!search) return res.status(400).json({ fail: "missing data" });
+    const values = [search, search];
+    pool.query(queries.searchProjectQuery, values, (err, result) => {
+      if (err) return res.status(400).json({ fail: "failed to search" });
+      res.json(result.rows);
+    });
+  } catch (err) {
+    res.status(500).json({ fail: "failed to search" });
+  }
+};
+const deleteProject = (req, res) => {
+  const { title } = req.body;
+  const values = [title];
+  try {
+    if (!title) return res.status(400).json({ fail: "missing data" });
+    pool.query(queries.deleteEventQuery, values, (err, result) => {
+      if (err) return res.status(400).json({ fail: "failed to delete" });
+      res.json({ msg: "deleted" });
+    });
+  } catch (err) {
+    res.status(500).json({ fail: "failed to delete" });
+  }
+};
 export {
   addUser,
+  searchProjects,
+  deleteEvent,
+  deleteProject,
   loginUser,
   getUser,
   addEvent,
   fetchEvents,
   addProject,
   fetchProjects,
+  searchEvents,
 };

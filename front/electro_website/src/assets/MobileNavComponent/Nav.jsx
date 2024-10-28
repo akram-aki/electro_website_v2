@@ -40,15 +40,29 @@ const footerVariant = {
     opacity: 0,
   },
 };
+import { useEffect } from "react";
+
 export default function Nav({ state, setState }) {
+  useEffect(() => {
+    if (state) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [state]);
+
   const handleScroll = async (event, targetId, setState) => {
     event.preventDefault();
     await new Promise((resolve) => {
       document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
-      setTimeout(resolve, 2000);
+      setTimeout(resolve, 500);
     });
     setState(!state);
   };
+
   return (
     <nav className="grid gap-24">
       <div className="flex flex-col  items-start mt-24 ml-16 gap-5">
