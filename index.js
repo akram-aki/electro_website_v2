@@ -16,9 +16,9 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "front/electro_website/dist")));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "front/electro_website/dist")));
 }
 
 app.use("/", routes);
