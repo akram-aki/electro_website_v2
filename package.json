@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "devhost": "nodemon --watch . --exec \"node index.js\" --host 0.0.0.0",
-    "dev": "nodemon --watch . --exec \"node index.js\""
+    "dev": "nodemon --watch . --exec \"node index.js\"",
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
