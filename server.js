@@ -13,7 +13,7 @@ const __dirname = dirname(__filename);
 app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
 // Serve index.html for the root URL
-app.get('/', (res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
