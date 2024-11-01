@@ -1,24 +1,5 @@
 {
-  "name": "electro_website",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "scripts": {
-    "devhost": "nodemon --watch . --exec \"node index.js\" --host 0.0.0.0",
-    "dev": "nodemon --watch . --exec \"node index.js\"",
-    "start": "node server.js"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
-    "express": "^4.21.1",
-    "jsonwebtoken": "^9.0.2",
-    "pg": "^8.13.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
+    "express": "^4.21.1"
   }
 }
