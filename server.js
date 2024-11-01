@@ -1,29 +1,23 @@
-import express from "express";
-import routes from "./components/routes.js";
-import cors from "cors";
-import path from "path";
-import { fileURLToPath } from "url";
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
 const app = express();
+const PORT = process.env.PORT || 3000; // Use process.env.PORT for Azure
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(__filename);
 
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-  })
-);
-app.use(express.json());
+// Serve static files from the ./client/dist directory
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
-app.use(express.static(path.join(__dirname, '/front/electro_website/dist')));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '/front/electro_website/dist/index.html'));
+// Serve index.html for the root URL
+app.get('/', (res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
-app.use("/", routes);
-
-app.listen(8000, () => {
-  console.log("server is running on port 8000");
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
