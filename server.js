@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
 // Serve index.html for the root URL
 app.get('/', (req, res) => {
-    res.send("Server is working!");
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
 // Start the server
